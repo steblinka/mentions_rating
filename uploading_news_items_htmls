@@ -1,0 +1,53 @@
+import requests
+for pravdaNum in range(9):
+    res = requests.get('https://www.pravda.com.ua/rus/archives/date_0%s122018/' % (pravdaNum +1)) # uploads pages with all the news items between 1-9 January 2018
+    res.raise_for_status()
+    belapanFile = open('pravda_%s.txt' % (pravdaNum +1), 'ab')
+    for chunk in res.iter_content(200000):
+        belapanFile.write(chunk)
+        belapanFile.close()
+    
+res = requests.get('https://www.pravda.com.ua/rus/archives/date_10122018/') # uploads pages with all the news items from 10 January 2018
+res.raise_for_status()
+belapanFile = open('pravda_10.txt', 'ab')
+for chunk in res.iter_content(200000):
+    belapanFile.write(chunk)
+    belapanFile.close()
+
+for pravdaNum in range(9):
+    res = requests.get('https://www.pravda.com.ua/rus/archives/date_1%s122018/' % (pravdaNum +1))
+    res.raise_for_status()
+    belapanFile = open('pravda_1%s.txt' % (pravdaNum +1), 'ab')
+    for chunk in res.iter_content(200000):
+        belapanFile.write(chunk)
+        belapanFile.close()
+
+res = requests.get('https://www.pravda.com.ua/rus/archives/date_20122018/')
+res.raise_for_status()
+belapanFile = open('pravda_20.txt', 'ab')
+for chunk in res.iter_content(200000):
+    belapanFile.write(chunk)
+    belapanFile.close()
+
+for pravdaNum in range(9):
+    res = requests.get('https://www.pravda.com.ua/rus/archives/date_2%s122018/' % (pravdaNum +1))
+    res.raise_for_status()
+    belapanFile = open('pravda_2%s.txt' % (pravdaNum +1), 'ab')
+    for chunk in res.iter_content(200000):
+        belapanFile.write(chunk)
+        belapanFile.close()
+
+  
+res = requests.get('https://www.pravda.com.ua/rus/archives/date_30122018/')
+res.raise_for_status()
+belapanFile = open('pravda_30.txt', 'ab')
+for chunk in res.iter_content(200000):
+    belapanFile.write(chunk)
+    belapanFile.close()
+
+res = requests.get('https://www.pravda.com.ua/rus/archives/date_31122018/')
+res.raise_for_status()
+belapanFile = open('pravda_31.txt', 'ab')
+for chunk in res.iter_content(200000):
+    belapanFile.write(chunk)
+    belapanFile.close()
